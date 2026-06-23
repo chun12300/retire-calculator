@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>退休存股計算器</title>
+
+<style>
+body{
+    font-family: Microsoft JhengHei;
+    max-width:500px;
+    margin:auto;
+    padding:20px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#2196F3;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+}
+
+#result{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>退休存股計算器</h1>
+
+<p>目前年齡</p>
+<input id="age">
+
+<p>退休年齡</p>
+<input id="retire">
+
+<p>每月投入金額</p>
+<input id="money">
+
+<button onclick="calc()">開始計算</button>
+
+<div id="result"></div>
+
+<script>
+
+function calc(){
+
+let age =
+Number(document.getElementById("age").value);
+
+let retire =
+Number(document.getElementById("retire").value);
+
+let money =
+Number(document.getElementById("money").value);
+
+let years = retire - age;
+
+let total = 0;
+
+for(let i=0;i<years*12;i++){
+
+total = (total + money) * 1.0064;
+
+}
+
+document.getElementById("result").innerHTML =
+"退休資產約：" +
+Math.round(total).toLocaleString() +
+" 元";
+
+}
+
+</script>
+
+</body>
+</html>
