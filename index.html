@@ -1,86 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<title>退休存股計算器</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ETF定期定額計算器</title>
 
 <style>
 body{
     font-family: Microsoft JhengHei;
-    max-width:500px;
-    margin:auto;
-    padding:20px;
+    background:#f5f7fa;
+}
+
+.container{
+    max-width:600px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
 }
 
 input{
     width:100%;
-    padding:10px;
-    margin:10px 0;
+    padding:12px;
+    margin-top:5px;
+    margin-bottom:20px;
+    box-sizing:border-box;
 }
 
 button{
     width:100%;
-    padding:12px;
-    background:#2196F3;
-    color:white;
+    padding:15px;
     border:none;
-    border-radius:8px;
+    background:#2563eb;
+    color:white;
     font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
 }
 
-#result{
-    margin-top:20px;
-    font-size:22px;
-    font-weight:bold;
+button:hover{
+    background:#1d4ed8;
+}
+
+.result{
+    margin-top:30px;
+    background:#eef4ff;
+    padding:20px;
+    border-radius:10px;
 }
 </style>
-
 </head>
 
 <body>
 
-<h1>退休存股計算器</h1>
+<div class="container">
 
-<p>目前年齡</p>
-<input id="age">
+<h1>ETF定期定額計算器</h1>
 
-<p>退休年齡</p>
-<input id="retire">
+<label>每月投入金額（元）</label>
+<input type="number" id="monthly">
 
-<p>每月投入金額</p>
-<input id="money">
+<label>投資年數</label>
+<input type="number" id="years">
 
-<button onclick="calc()">開始計算</button>
+<label>年化報酬率 (%)</label>
+<input type="number" id="rate" value="8">
 
-<div id="result"></div>
+<button onclick="calculate()">
+開始計算
+</button>
+
+<div class="result" id="result">
+請輸入資料後計算
+</div>
+
+</div>
 
 <script>
 
-function calc(){
+function calculate(){
 
-let age =
-Number(document.getElementById("age").value);
+let monthly =
+parseFloat(document.getElementById("monthly").value);
 
-let retire =
-Number(document.getElementById("retire").value);
+let years =
+parseFloat(document.getElementById("years").value);
 
-let money =
-Number(document.getElementById("money").value);
+let rate =
+parseFloat(document.getElementById("rate").value)/100;
 
-let years = retire - age;
+let months = years * 12;
 
-let total = 0;
+let totalInvest =
+monthly * months;
 
-for(let i=0;i<years*12;i++){
+let futureValue = 0;
 
-total = (total + money) * 1.0064;
+let monthlyRate = rate / 12;
+
+for(let i=0;i<months;i++){
+
+futureValue =
+(futureValue + monthly)
+* (1 + monthlyRate);
 
 }
 
-document.getElementById("result").innerHTML =
-"退休資產約：" +
-Math.round(total).toLocaleString() +
-" 元";
+let profit =
+futureValue - totalInvest;
+
+document.getElementById("result").innerHTML=
+
+`
+<h3>計算結果</h3>
+
+<p>總投入：
+<b>${Math.round(totalInvest).toLocaleString()} 元</b></p>
+
+<p>預估資產：
+<b>${Math.round(futureValue).toLocaleString()} 元</b></p>
+
+<p>預估獲利：
+<b>${Math.round(profit).toLocaleString()} 元</b></p>
+`;
 
 }
 
