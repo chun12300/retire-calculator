@@ -1,139 +1,190 @@
 <!DOCTYPE html>
-
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ETF定期定額計算器</title>
+<title>AI 專家決策團</title>
 
 <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Microsoft JhengHei",sans-serif;
+}
+
 body{
-    font-family: Microsoft JhengHei;
-    background:#f5f7fa;
+    background:#081120;
+    color:white;
+}
+
+.header{
+    padding:30px 20px;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+}
+
+.subtitle{
+    color:#7aa7ff;
+    margin-top:8px;
 }
 
 .container{
-    max-width:600px;
-    margin:50px auto;
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
+    width:92%;
+    max-width:900px;
+    margin:auto;
 }
 
-h1{
-    text-align:center;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:25px;
 }
 
-input{
-    width:100%;
-    padding:12px;
-    margin-top:5px;
-    margin-bottom:20px;
-    box-sizing:border-box;
-}
-
-button{
-    width:100%;
-    padding:15px;
-    border:none;
-    background:#2563eb;
-    color:white;
-    font-size:18px;
-    border-radius:8px;
+.card{
+    background:#13233f;
+    border-radius:20px;
+    padding:25px;
     cursor:pointer;
+    transition:.3s;
+    border:1px solid rgba(255,255,255,.08);
 }
 
-button:hover{
-    background:#1d4ed8;
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 25px rgba(0,162,255,.35);
 }
 
-.result{
-    margin-top:30px;
-    background:#eef4ff;
-    padding:20px;
-    border-radius:10px;
+.icon{
+    font-size:42px;
 }
+
+.title{
+    font-size:26px;
+    margin-top:18px;
+    font-weight:bold;
+}
+
+.desc{
+    color:#c5d1e8;
+    margin-top:12px;
+    line-height:1.6;
+}
+
+.footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#101b33;
+    display:flex;
+    justify-content:space-around;
+    padding:15px 0;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer div{
+    text-align:center;
+    color:#8fb4ff;
+}
+
+@media(max-width:600px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
+<div class="header">
+
+<div class="logo">
+AI 專家決策團
+</div>
+
+<div class="subtitle">
+選擇一個領域，開始你的 AI 決策分析
+</div>
+
+</div>
+
 <div class="container">
 
-<h1>ETF定期定額計算器</h1>
+<div class="grid">
 
-<label>每月投入金額（元）</label>
-<input type="number" id="monthly">
+<div class="card">
+<div class="icon">🏠</div>
+<div class="title">生活</div>
+<div class="desc">
+讓生活更有秩序、更有效率。
+</div>
+</div>
 
-<label>投資年數</label>
-<input type="number" id="years">
+<div class="card">
+<div class="icon">📈</div>
+<div class="title">理財</div>
+<div class="desc">
+讓錢替你工作，而不是替錢煩惱。
+</div>
+</div>
 
-<label>年化報酬率 (%)</label>
-<input type="number" id="rate" value="8">
+<div class="card">
+<div class="icon">✈️</div>
+<div class="title">旅遊</div>
+<div class="desc">
+規劃安心又省錢的旅行。
+</div>
+</div>
 
-<button onclick="calculate()">
-開始計算
-</button>
+<div class="card">
+<div class="icon">🍜</div>
+<div class="title">美食</div>
+<div class="desc">
+找到值得品嚐的美食。
+</div>
+</div>
 
-<div class="result" id="result">
-請輸入資料後計算
+<div class="card">
+<div class="icon">📢</div>
+<div class="title">行銷</div>
+<div class="desc">
+提升曝光，增加品牌影響力。
+</div>
+</div>
+
+<div class="card">
+<div class="icon">🤔</div>
+<div class="title">選擇困難</div>
+<div class="desc">
+交給 AI 協助你做決策。
+</div>
 </div>
 
 </div>
 
-<script>
+</div>
 
-function calculate(){
+<div class="footer">
 
-let monthly =
-parseFloat(document.getElementById("monthly").value);
+<div>🏠<br>首頁</div>
 
-let years =
-parseFloat(document.getElementById("years").value);
+<div>⭐<br>專家</div>
 
-let rate =
-parseFloat(document.getElementById("rate").value)/100;
+<div>📋<br>紀錄</div>
 
-let months = years * 12;
-
-let totalInvest =
-monthly * months;
-
-let futureValue = 0;
-
-let monthlyRate = rate / 12;
-
-for(let i=0;i<months;i++){
-
-futureValue =
-(futureValue + monthly)
-* (1 + monthlyRate);
-
-}
-
-let profit =
-futureValue - totalInvest;
-
-document.getElementById("result").innerHTML=
-
-`
-<h3>計算結果</h3>
-
-<p>總投入：
-<b>${Math.round(totalInvest).toLocaleString()} 元</b></p>
-
-<p>預估資產：
-<b>${Math.round(futureValue).toLocaleString()} 元</b></p>
-
-<p>預估獲利：
-<b>${Math.round(profit).toLocaleString()} 元</b></p>
-`;
-
-}
-
-</script>
+</div>
 
 </body>
 </html>
