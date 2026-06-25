@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="zh-TW">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>人生RPG</title>
 
 <style>
@@ -16,141 +11,136 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:"Microsoft JhengHei",sans-serif;
 }
 
 body{
 
-background:#08111f;
-
-font-family:"Microsoft JhengHei";
+background:linear-gradient(180deg,#07111f,#0d1830,#111d3d);
 
 color:white;
 
+min-height:100vh;
+
 }
 
-.header{
+.hero{
 
-padding:40px;
+padding:70px 25px 40px;
 
 text-align:center;
 
 }
 
-.header h1{
+.logo{
 
-font-size:56px;
+font-size:58px;
+
+font-weight:bold;
 
 color:#FFD66B;
 
+letter-spacing:3px;
+
 }
 
-.header p{
+.subtitle{
 
 margin-top:15px;
 
 font-size:22px;
 
-color:#bbb;
+color:#B8C5D9;
 
 }
 
-.container{
+.player{
 
-width:1200px;
+width:330px;
 
-max-width:95%;
+max-width:90%;
 
-margin:auto;
+margin:45px auto;
 
-}
+background:rgba(255,255,255,.08);
 
-.grid{
+backdrop-filter:blur(12px);
 
-display:grid;
+border-radius:22px;
 
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+padding:25px;
 
-gap:25px;
-
-margin-top:40px;
+border:1px solid rgba(255,255,255,.08);
 
 }
 
-.card{
+.level{
 
-background:#13233d;
+font-size:28px;
 
-border-radius:25px;
+font-weight:bold;
 
-padding:30px;
-
-transition:.3s;
-
-cursor:pointer;
-
-border:2px solid rgba(255,255,255,.08);
-
-box-shadow:0 0 25px rgba(0,0,0,.3);
+margin-bottom:15px;
 
 }
 
-.card:hover{
+.bar{
 
-transform:translateY(-8px);
+height:16px;
 
-box-shadow:0 0 30px rgba(0,180,255,.45);
+background:#253550;
 
-}
+border-radius:30px;
 
-.icon{
-
-font-size:58px;
-
-margin-bottom:20px;
+overflow:hidden;
 
 }
 
-.card h2{
+.exp{
 
-font-size:30px;
+width:35%;
 
-margin-bottom:12px;
+height:100%;
 
-}
-
-.card p{
-
-color:#bfc8d6;
-
-line-height:1.7;
+background:linear-gradient(90deg,#00d4ff,#00ff95);
 
 }
 
-button{
+.expText{
 
-margin-top:25px;
+margin-top:10px;
 
-width:100%;
+color:#AFC6E9;
 
-padding:15px;
+}
 
-border:none;
+.start{
 
-border-radius:15px;
+margin-top:35px;
 
-background:#2a6cff;
-
-color:white;
+padding:16px 35px;
 
 font-size:18px;
 
+border:none;
+
+border-radius:40px;
+
+background:linear-gradient(90deg,#4B7CFF,#39C7FF);
+
+color:white;
+
 cursor:pointer;
+
+transition:.3s;
 
 }
 
-button:hover{
+.start:hover{
 
-background:#4d89ff;
+transform:scale(1.05);
+
+box-shadow:0 0 25px rgba(0,180,255,.5);
 
 }
 
@@ -160,54 +150,49 @@ background:#4d89ff;
 
 <body>
 
-<div class="header">
+<div class="hero">
 
-<h1>人生RPG</h1>
+<div class="logo">
 
-<p>每天，都升級一點點。</p>
+⚔️ 人生RPG
 
 </div>
 
-<div class="container">
+<div class="subtitle">
 
-<div class="grid">
-    <div class="card">
-    <div class="icon">💰</div>
-    <h2>投資有富</h2>
-    <p>讓錢替你工作，而不是替錢工作。</p>
-    <button>進入領域</button>
+每一天，都是新的任務。
+
 </div>
 
-<div class="card">
-    <div class="icon">🍜</div>
-    <h2>百匯饗宴</h2>
-    <p>今天想吃什麼？探索世界的美味。</p>
-    <button>進入領域</button>
+<div class="player">
+
+<div class="level">
+
+Lv.1　冒險者
+
 </div>
 
-<div class="card">
-    <div class="icon">😂</div>
-    <h2>人生迷因</h2>
-    <p>笑一下，再繼續冒險。</p>
-    <button>進入領域</button>
+<div class="bar">
+
+<div class="exp"></div>
+
 </div>
 
-<div class="card">
-    <div class="icon">💪</div>
-    <h2>獨自升級</h2>
-    <p>每天進步一點點，就是最大的勝利。</p>
-    <button>進入領域</button>
+<div class="expText">
+
+EXP 120 / 500
+
 </div>
 
-<div class="card">
-    <div class="icon">🗺️</div>
-    <h2>地圖解鎖</h2>
-    <p>去沒去過的地方，遇見新的自己。</p>
-    <button>進入領域</button>
 </div>
+
+<button class="start">
+
+開始今天的冒險
+
+</button>
 
 </div>
 
 </body>
-
 </html>
