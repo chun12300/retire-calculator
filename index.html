@@ -1,104 +1,155 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI 專家決策團</title>
+<title>人生RPG</title>
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Microsoft JhengHei",sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#081120;
-    color:white;
+
+background:#08111f;
+
+font-family:"Microsoft JhengHei";
+
+color:white;
+
 }
 
 .header{
-    padding:30px 20px;
+
+padding:40px;
+
+text-align:center;
+
 }
 
-.logo{
-    font-size:32px;
-    font-weight:bold;
+.header h1{
+
+font-size:56px;
+
+color:#FFD66B;
+
 }
 
-.subtitle{
-    color:#7aa7ff;
-    margin-top:8px;
+.header p{
+
+margin-top:15px;
+
+font-size:22px;
+
+color:#bbb;
+
 }
 
 .container{
-    width:92%;
-    max-width:900px;
-    margin:auto;
+
+width:1200px;
+
+max-width:95%;
+
+margin:auto;
+
 }
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-    margin-top:25px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:25px;
+
+margin-top:40px;
+
 }
 
 .card{
-    background:#13233f;
-    border-radius:20px;
-    padding:25px;
-    cursor:pointer;
-    transition:.3s;
-    border:1px solid rgba(255,255,255,.08);
+
+background:#13233d;
+
+border-radius:25px;
+
+padding:30px;
+
+transition:.3s;
+
+cursor:pointer;
+
+border:2px solid rgba(255,255,255,.08);
+
+box-shadow:0 0 25px rgba(0,0,0,.3);
+
 }
 
 .card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 0 25px rgba(0,162,255,.35);
+
+transform:translateY(-8px);
+
+box-shadow:0 0 30px rgba(0,180,255,.45);
+
 }
 
 .icon{
-    font-size:42px;
+
+font-size:58px;
+
+margin-bottom:20px;
+
 }
 
-.title{
-    font-size:26px;
-    margin-top:18px;
-    font-weight:bold;
+.card h2{
+
+font-size:30px;
+
+margin-bottom:12px;
+
 }
 
-.desc{
-    color:#c5d1e8;
-    margin-top:12px;
-    line-height:1.6;
+.card p{
+
+color:#bfc8d6;
+
+line-height:1.7;
+
 }
 
-.footer{
-    position:fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    background:#101b33;
-    display:flex;
-    justify-content:space-around;
-    padding:15px 0;
-    border-top:1px solid rgba(255,255,255,.08);
+button{
+
+margin-top:25px;
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:15px;
+
+background:#2a6cff;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
 }
 
-.footer div{
-    text-align:center;
-    color:#8fb4ff;
-}
+button:hover{
 
-@media(max-width:600px){
-
-.grid{
-grid-template-columns:1fr;
-}
+background:#4d89ff;
 
 }
 
@@ -110,81 +161,52 @@ grid-template-columns:1fr;
 
 <div class="header">
 
-<div class="logo">
-AI 專家決策團
-</div>
+<h1>人生RPG</h1>
 
-<div class="subtitle">
-選擇一個領域，開始你的 AI 決策分析
-</div>
+<p>每天，都升級一點點。</p>
 
 </div>
 
 <div class="container">
 
 <div class="grid">
-
-<div class="card">
-<div class="icon">🏠</div>
-<div class="title">生活</div>
-<div class="desc">
-讓生活更有秩序、更有效率。
-</div>
+    <div class="card">
+    <div class="icon">💰</div>
+    <h2>投資有富</h2>
+    <p>讓錢替你工作，而不是替錢工作。</p>
+    <button>進入領域</button>
 </div>
 
 <div class="card">
-<div class="icon">📈</div>
-<div class="title">理財</div>
-<div class="desc">
-讓錢替你工作，而不是替錢煩惱。
-</div>
-</div>
-
-<div class="card">
-<div class="icon">✈️</div>
-<div class="title">旅遊</div>
-<div class="desc">
-規劃安心又省錢的旅行。
-</div>
+    <div class="icon">🍜</div>
+    <h2>百匯饗宴</h2>
+    <p>今天想吃什麼？探索世界的美味。</p>
+    <button>進入領域</button>
 </div>
 
 <div class="card">
-<div class="icon">🍜</div>
-<div class="title">美食</div>
-<div class="desc">
-找到值得品嚐的美食。
-</div>
-</div>
-
-<div class="card">
-<div class="icon">📢</div>
-<div class="title">行銷</div>
-<div class="desc">
-提升曝光，增加品牌影響力。
-</div>
+    <div class="icon">😂</div>
+    <h2>人生迷因</h2>
+    <p>笑一下，再繼續冒險。</p>
+    <button>進入領域</button>
 </div>
 
 <div class="card">
-<div class="icon">🤔</div>
-<div class="title">選擇困難</div>
-<div class="desc">
-交給 AI 協助你做決策。
-</div>
-</div>
-
+    <div class="icon">💪</div>
+    <h2>獨自升級</h2>
+    <p>每天進步一點點，就是最大的勝利。</p>
+    <button>進入領域</button>
 </div>
 
+<div class="card">
+    <div class="icon">🗺️</div>
+    <h2>地圖解鎖</h2>
+    <p>去沒去過的地方，遇見新的自己。</p>
+    <button>進入領域</button>
 </div>
-
-<div class="footer">
-
-<div>🏠<br>首頁</div>
-
-<div>⭐<br>專家</div>
-
-<div>📋<br>紀錄</div>
 
 </div>
 
 </body>
+
 </html>
